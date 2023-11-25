@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEA ITDesk Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <ul class="nav">
+        <li onclick="gotoHome()">Home</li>
+        <li onclick="gotoLogin()">Login</li>
+        <li onclick="gotoRegister()">Register</li>
+        <li onclick="gotoTicketDetail()">Ticket Details</li>
+    </ul>
+    <div class="clearfix"></div>
+    <div id="root">
+        <!-- <div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+            <div class=" col-lg-5 col-12">                
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1>Register Page</h1>
+                        <p>Kayıt olmak için bilgilerinizi giriniz.</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="name">
+                                İsim
+                            </label>
+                            <input type="text" class="form-control" placeholder="john" id="name" onkeyup="checkValidation(event)" required minlength="3">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">
+                                Soyisim
+                            </label>
+                            <input type="text" class="form-control" placeholder="doe" id="lastName" onkeyup="checkValidation(event)" required minlength="3">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userName">
+                                UserName
+                            </label>
+                            <input type="text" class="form-control" placeholder="johndoe" id="userName" onkeyup="checkValidation(event)" required minlength="4">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email
+                            </label>
+                            <input type="email" class="form-control" placeholder="john@doe.com" id="email" onkeyup="checkValidation(event)" required minlength="3">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">
+                                Parola
+                            </label>
+                            <input type="password" class="form-control" placeholder="******" id="password" onkeyup="checkValidationForPassword(event)" required minlength="6">
+                            <ul style="display: none;">
+                                <li class="text-danger" id="minSixLength">
+                                    6 karakter uzunluğunda olmalıdır.
+                                </li>
+                                <li class="text-danger" id="upperCase">
+                                    Büyük harf içermelidir.
+                                </li>
+                                <li class="text-danger" id="lowerCase">
+                                    Küçük harf içermelidir.
+                                </li>
+                                <li class="text-danger" id="number">
+                                   Rakam içermelidir.
+                                </li>
+                                <li class="text-danger" id="customCharacter">
+                                    Özel karakter içermelidir.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form-group mt-2">
+                            <button class="btn btn-dark w-100 mb-1">
+                                Register
+                            </button>
+                            <p class="fw-bold">
+                                Kayıtlı mısın?
+                            </p>
+                            <a href="" class="fw-bold" onclick="gotoLogin()" style="float: right; margin-top: -40px;">
+                                Giriş Yap
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>         -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

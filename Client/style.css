@@ -1,0 +1,28 @@
+li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  background-color: bisque;
+  padding: 10px;
+  position: relative;
+  margin: 15px 0 0 20px;
+  transition: transform 1.5s all ease;
+}
+
+.clearfix {
+  margin-top: 20px;
+  border-bottom: 5px solid rgb(25, 121, 216);
+}
+
+li:hover {
+  transform: scale(1.2);
+  color: white;
+  background-color: rgb(68, 7, 7);
+}
+
+h1 {
+  margin: 20px 0 0 45px;
+}
