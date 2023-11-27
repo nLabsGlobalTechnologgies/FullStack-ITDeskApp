@@ -12,13 +12,23 @@ namespace ITDeskServer.WebAPI.Context
             // DbContextOptions nesnesi, veritabanı bağlamının yapılandırma seçeneklerini içerir.
         }
 
-        // Kullanıcıları temsil eden DbSet özelliği.
+        // Kullanıcılar veritabanı tablosunu temsil eden DbSet.
         public DbSet<User> Users { get; set; }
 
-        // Biletleri temsil eden DbSet özelliği.
+        // Kullanıcı rolleri veritabanı tablosunu temsil eden DbSet.
+        public DbSet<Role> Roles { get; set; }
+
+        // Kullanıcı rolleri ve izinleri veritabanı tablosunu temsil eden DbSet.
+        public DbSet<UserRolePermission> UserRolePermissions { get; set; }
+
+        // Destek talepleri veritabanı tablosunu temsil eden DbSet.
         public DbSet<Ticket> Tickets { get; set; }
 
-        // Kullanıcı bilet ilişkilerini temsil eden DbSet özelliği.
-        public DbSet<UserTicket> UserTickets { get; set; }
+        // Destek taleplerine atanmış personelleri tutan veritabanı tablosunu temsil eden DbSet.
+        public DbSet<TicketPersonnel> TicketPersonnels { get; set; }
+
+        // Destek taleplerini destekleyenleri tutan veritabanı tablosunu temsil eden DbSet.
+        public DbSet<TicketResponse> TicketResponses { get; set; }
+
     }
 }
