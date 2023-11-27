@@ -11,21 +11,33 @@ public sealed class User
     public byte[] PasswordSalt { get; set; } = new byte[64];
     public byte[] PasswordHash { get; set; } = new byte[128];
     public DateTime CreatedDate { get; private set; } = DateTime.Now;
-    public DateTime? UpdatedDate { get; set; }
+    public DateTime? UpdatedDate { get; private set; }
+    public Guid UpdatedBy { get; private set; }
+    public DateTime? DeletedDate { get; private set; }
     public bool IsDeleted { get; private set; } = false;
+    public Guid? DeletedBy { get; private set; }
 
     public ICollection<Ticket> Tickets { get; set; }
 
-    public void RoleUpdate(Guid id, bool isAdmin)
+    public void RoleUpdate(bool isAdmin, Guid updatedBy)
     {
-        Id = id;
+        UpdatedDate = DateTime.Now;
         IsAdmin = isAdmin;
+        UpdatedBy = updatedBy;
     }
 
-    public void DeleteTicket(Guid id, bool isDeleted)
+    public void Update(Guid updatedBy)
     {
-        Id = id;
+        UpdatedDate = DateTime.Now;
+        UpdatedBy = updatedBy;
+    }
+
+    public void Delete(bool isDeleted, Guid deletedBy)
+    {
+        DeletedDate = DateTime.Now;
         IsDeleted = isDeleted;
+        DeletedBy = deletedBy;
+
     }
 
 }
