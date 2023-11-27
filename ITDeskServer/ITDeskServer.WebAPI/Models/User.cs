@@ -12,12 +12,13 @@ public sealed class User
     public byte[] PasswordHash { get; set; } = new byte[128];
     public DateTime CreatedDate { get; private set; } = DateTime.Now;
     public DateTime? UpdatedDate { get; private set; }
-    public Guid UpdatedBy { get; private set; }
+    public Guid? UpdatedBy { get; private set; }
     public DateTime? DeletedDate { get; private set; }
     public bool IsDeleted { get; private set; } = false;
     public Guid? DeletedBy { get; private set; }
 
     public ICollection<Ticket> Tickets { get; set; }
+    public ICollection<UserTicket> UserTickets { get; set; }
 
     public void RoleUpdate(bool isAdmin, Guid updatedBy)
     {

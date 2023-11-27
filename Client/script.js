@@ -1,5 +1,8 @@
 const rootEl = document.getElementById("root");
-
+const api = "https://localhost:7079/api/";
+const param = + api + "Auth/";
+const loginAction = + param + "Login";
+const registerAction = + param + "Register";
 gotoHome();
 
 function gotoLogin(){
@@ -210,14 +213,14 @@ function isTrueReturnSuccesOrDanger(expression){
     return "text-danger";
 }
 
-function home(){
-    if(!login){
-        gotoLogin();
-    }
-    else{
-        gotoHome();
-    }
-}
+// function home(){
+//     if(!login){
+//         gotoLogin();
+//     }
+//     else{
+//         gotoHome();
+//     }
+// }
 
 function login(){
     const userNameOrEmailEl = document.getElementById("userNameOrEmail");
@@ -237,7 +240,28 @@ function login(){
     }
 
     if (userNameOrEmailIsValid && passwordIsValid) {
-        //
+        const data = {
+            userNameOrEmail: userNameOrEmailEl.value,
+            password: passwordEl.value
+        }
+        axios.post(loginAction, data).then(res => {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "bottom-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Giriş işlemi başarıyla tamamlandı. Yönlendiriliyorsunuz!"
+            });
+            gotoHome();
+        });
     }
 }
 
@@ -292,7 +316,7 @@ function register(){
             password: passwordEl.value
         }
 
-        axios.post("https://localhost:7079/api/Auth/Register", data).then(res => {
+        axios.post(registerAction, data).then(res => {
             const Toast = Swal.mixin({
                 toast: true,
                 position: "bottom-end",
