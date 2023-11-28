@@ -6,8 +6,8 @@ public sealed class Ticket : BaseModel
     public string? Tags { get; set; } = string.Empty;// Etiketlerle ilişkilendirilmiş metin bilgisi.    
     public string Subject { get; set; } = string.Empty;// Destek talebi başlığı.    
     public string Description { get; set; } = string.Empty;// Destek talebi açıklaması.    
-    public Priorities Priority { get; set; } = Priorities.Low;// Destek talebinin önceliği (Düşük, Orta, Yüksek).    
-    public Statusses Status { get; set; } = Statusses.UnderReview;// Destek talebinin durumu (İnceleniyor, Cevap Verildi, İtiraz Edildi, vb.).    
+    public byte Priority { get; set; } = 0;// Destek talebinin önceliği (Düşük, Orta, Yüksek).    
+    public byte Status { get; set; } = 0;// Destek talebinin durumu (İnceleniyor, Cevap Verildi, İtiraz Edildi, vb.).    
     public byte Rating { get; private set; } = 0; // Kullanıcı tarafından belirlenen bir derecelendirme (Min 1, Max 5).    
     public Guid? AssignedTo { get; private set; }// Destek talebine atanmış olan kişinin kimliği.
 
@@ -31,19 +31,16 @@ public sealed class Ticket : BaseModel
         Rating = rating;
         Update(updatedBy);
     }
-}
 
-public enum Priorities
-{
-    Low = 0,
-    Medium = 1,
-    High = 2
-}
+    public void UpdateStatus(Guid updatedBy, byte status)
+    {
+        Status = status;
+        Update(updatedBy);
+    }
 
-public enum Statusses
-{
-    UnderReview = 0,
-    Answered = 1,
-    Disputed = 2
-    // Diğer durumlar eklenebilir.
+    public void UpdatePriority(Guid updatedBy, byte priority)
+    {
+        Priority = priority;
+        Update(updatedBy);
+    }
 }
